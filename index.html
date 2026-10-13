@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeLine Lab | Blood Test Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="logo">✚</span><span>LifeLine <b>Lab</b><small>Care you can trust</small></span></a>
+  <nav><a href="#home">Home</a><a href="#tests">Tests</a><a href="#booking">Book a Test</a><a href="#admin">Lab Dashboard</a></nav>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <span class="eyebrow">YOUR HEALTH, OUR PRIORITY</span>
+      <h1>Book your blood test.<br><span>Skip the waiting.</span></h1>
+      <p>Choose a test, select a convenient time, and manage your booking in a few simple steps.</p>
+      <div class="hero-actions"><a class="btn primary" href="#booking">Book a Test →</a><a class="btn secondary" href="#tests">Explore Tests</a></div>
+      <div class="trust"><span>✓ Simple booking</span><span>✓ Clear test details</span><span>✓ Easy management</span></div>
+    </div>
+    <div class="hero-card">
+      <div class="pulse">✚</div><p class="muted">YOUR WELLNESS, SIMPLIFIED</p><h3>Care starts with a check-up.</h3>
+      <div class="mini-row"><span>🧪</span><div><b>Popular blood tests</b><small>Explore available tests</small></div><span class="arrow">↗</span></div>
+      <div class="mini-row"><span>📅</span><div><b>Convenient appointments</b><small>Pick a date and time</small></div><span class="arrow">↗</span></div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div><strong id="testCount">8</strong><span>Tests listed</span></div>
+    <div><strong id="bookingCount">0</strong><span>Demo bookings</span></div>
+    <div><strong>7 days</strong><span>Booking availability</span></div>
+  </section>
+
+  <section class="section" id="tests">
+    <div class="section-head"><div><span class="eyebrow">OUR SERVICES</span><h2>Popular blood tests</h2><p>Explore common tests and their demo prices.</p></div><input id="testSearch" class="search" placeholder="Search tests..." aria-label="Search tests"></div>
+    <div id="testGrid" class="test-grid"></div>
+  </section>
+
+  <section class="section booking-section" id="booking">
+    <div class="section-head"><div><span class="eyebrow">APPOINTMENT</span><h2>Book your test</h2><p>Fill in the details below to create a demo booking.</p></div></div>
+    <form id="bookingForm" class="booking-form">
+      <label>Patient full name<input name="name" required maxlength="80" placeholder="Enter full name"></label>
+      <label>Phone number<input name="phone" required inputmode="tel" pattern="[0-9+ ()-]{8,18}" placeholder="Enter phone number"></label>
+      <label>Select blood test<select name="test" id="bookingTest" required></select></label>
+      <label>Appointment date<input name="date" id="appointmentDate" type="date" required></label>
+      <label>Appointment time<select name="time" required><option value="">Choose time</option><option>08:00 AM</option><option>09:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>02:00 PM</option><option>03:00 PM</option><option>04:00 PM</option></select></label>
+      <label>Collection type<select name="collection" required><option value="Visit lab">Visit lab</option><option value="Home collection (demo)">Home collection (demo)</option></select></label>
+      <label class="full">Notes (optional)<textarea name="notes" rows="3" maxlength="300" placeholder="Any booking notes"></textarea></label>
+      <div class="full note">Demo only: do not enter sensitive medical information. Confirm any fasting or preparation instructions with your healthcare professional or laboratory.</div>
+      <button class="btn primary full" type="submit">Confirm Demo Booking</button>
+    </form>
+    <p id="formMessage" class="message" role="status"></p>
+  </section>
+
+  <section class="section" id="myBookings">
+    <div class="section-head"><div><span class="eyebrow">YOUR APPOINTMENTS</span><h2>My bookings</h2><p>Bookings are saved only in this browser on this device.</p></div><button id="clearBookings" class="btn secondary">Clear demo bookings</button></div>
+    <div id="bookingList" class="booking-list"></div>
+  </section>
+
+  <section class="section admin-section" id="admin">
+    <div class="section-head"><div><span class="eyebrow">LAB MANAGEMENT</span><h2>Lab dashboard</h2><p>Demo dashboard for viewing bookings and updating appointment status.</p></div><span class="demo-badge">DEMO MODE</span></div>
+    <div class="admin-tools"><input id="adminSearch" class="search" placeholder="Search patient, test, or booking ID"><select id="statusFilter"><option value="All">All statuses</option><option>Booked</option><option>Confirmed</option><option>Sample Collected</option><option>Completed</option><option>Cancelled</option></select></div>
+    <div class="table-wrap"><table><thead><tr><th>Booking ID</th><th>Patient</th><th>Test</th><th>Appointment</th><th>Collection</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminRows"></tbody></table></div>
+    <p class="note">This dashboard has no authentication and is not secure for real patient data. Anyone using this browser can access its demo records.</p>
+  </section>
+</main>
+<footer><div class="brand"><span class="logo">✚</span><span>LifeLine <b>Lab</b><small>Care you can trust</small></span></div><p>Student project demo · Not a real diagnostic laboratory</p><p>© <span id="year"></span> LifeLine Lab</p></footer>
+<script src="script.js"></script>
+</body>
+</html>
